@@ -8,12 +8,12 @@ using MongoDB.Driver;
 
 namespace Catalog.API.Data
 {
-    public class CataolgContext : ICatalogContext
+    public class CatalogContext : ICatalogContext
     {
         private readonly MongoClient client;
         private readonly IMongoDatabase database;
 
-        public CataolgContext(IConfiguration configuration)
+        public CatalogContext(IConfiguration configuration)
         {
             client = new MongoClient(configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
             database = client.GetDatabase(configuration.GetValue<string>("DatabaseSettings:DatabaseName"));
